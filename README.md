@@ -3,4 +3,4 @@ Job Application Manager (Final Project)
 
 
 ## ERD:
-[ERD](./pics/tempERD.PNG)
+![ERD](./pics/tempERD.PNG)
