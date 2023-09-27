@@ -1,6 +1,7 @@
 {
-  "name": "jam",
+  "name": "JAM",
   "version": "0.1.0",
+  "author": "Manpreet Singh & John Cloghesy",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
