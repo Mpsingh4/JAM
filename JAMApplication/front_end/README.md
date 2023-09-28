@@ -1,9 +1,5 @@
-# JAM
-Job Application Manager (Final Project)
-
-
-## ERD:
-![ERD](./pics/tempERD.PNG)
+# FRONTEND README.md
+- notes from repo that was the source of the original code for frontend
 
 # Getting Started with Create React App
 
