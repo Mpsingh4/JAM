@@ -2,7 +2,7 @@
 - notes from repo that was the source of the original code for backend
 
 ## ERD:
-![ERD](./pics/tempERD.PNG)
+![ERD](https://github.com/Mpsingh4/JAM/blob/main/docs/pics/tempERD.PNG)
 
 LHL Node Skeleton
 =========
