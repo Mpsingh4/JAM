@@ -4,6 +4,23 @@
 ## ERD:
 ![ERD](https://github.com/Mpsingh4/JAM/blob/main/docs/pics/tempERD.PNG)
 
+* changed name to use plurals (i.e. user to users) on all tables
+* 01_users table 
+      - sub_id serial not null (need to know if correct)
+      - included username in table
+* 02_cover_letters table
+      -  contents - need to add image and 
+      -  contents - need more than 255 
+* 03_resumes table
+      -  contents - need to add image and 
+      -  contents - need more than 255 
+* 04_job_applications table
+      - company response (sk) - double check this one
+* 05_responses table
+      -  reminder_days - may need to change
+      -  note          - may want eed more than 255 
+* 
+
 LHL Node Skeleton
 =========
 
