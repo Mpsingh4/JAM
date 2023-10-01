@@ -6,5 +6,5 @@ CREATE TABLE cover_letters (
   cover_letter_id     SERIAL PRIMARY KEY NOT NULL,
   user_id             INTEGER REFERENCES users(user_id),
   resume_id           INTEGER REFERENCES resumes(resume_id),
-  contents            VARCHAR(255) NOT NULL
+  contents            VARCHAR NOT NULL
 );
