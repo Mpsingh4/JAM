@@ -59,7 +59,7 @@ INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
     Expert in responsive, mobile-first development
     JavaScript (jQuery, AngularJS, React, Bootstrap), HTML/CSS, Git, Mocha, Jasmine'
   ),
-  (22, 2, 'Two Page'
+  (22, 2, 'Two Page',
    'John Cloghesy
     Denver, CO | 303-555-0196 | emoore@email.com
     Summary

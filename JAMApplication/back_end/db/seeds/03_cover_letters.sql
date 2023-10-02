@@ -69,6 +69,7 @@ INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
 
 
 -- Jane"s Letter (1) --
+INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
   (31, 3, 31,
    'Brittany Menard
     Fort Wayne, IN
