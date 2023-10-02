@@ -8,7 +8,7 @@ CREATE TABLE job_applications (
   resume_id           INTEGER REFERENCES resumes(resume_id),
   job_title           VARCHAR(255) NOT NULL,
   company_name        VARCHAR(255) NOT NULL,
-  application_date    TIMESTAMP[ (P) ] WITH TIME ZONE NOT NULL,
-  application_method  VARCHAR(255),
+  application_date    TIMESTAMP WITH TIME ZONE  NOT NULL,
+  application_method  VARCHAR(100),
   company_response    VARCHAR
 );
