@@ -1,0 +1,2 @@
+tying to make sure i remember everything that was installed:
+installed react router dom/ mui/ mui icons/ react icons/ did npm install for basic dependencies/ axios/ express body parser and mysql.

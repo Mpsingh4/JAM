@@ -3,26 +3,19 @@ import landingPage from './landingPage';
 import './App.css';
 import Home from './components/home';
 import NavBar from './components/navBar';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import Login from './login'
 
 function App() {
   return (
-    <Home/>
-
-    // <nav>
-    // <div className='App'>
-    //   Hello world
-    // </div>
-    
-
-    // <form>
-    //   <label for="email">email</label>
-    //   <input type="email" placeholder='youremail@email.com' id="email" name="email"/>
-    //   <label for="password">password</label>
-    //   <input type="password" placeholder='************' id="password" name="password"/>
-    //   <button>Login</button>
-    // </form>
-    // </nav>
-  )
-};
+    <Router>
+      <Home />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </Router>
+  );
+}
 
 export default App;
