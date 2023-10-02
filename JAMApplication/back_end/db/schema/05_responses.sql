@@ -1,5 +1,5 @@
 -- RESPONSES TABLE --
-    - drops and recreates RESPONSES table --
+    -- drops and recreates RESPONSES table --
     -- TIMEZONE  1999-01-08 04:05:06+02 (with timezone + or - 2 digits =+02)
 
 DROP TABLE IF EXISTS responses CASCADE;
