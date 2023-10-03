@@ -3,18 +3,18 @@ import landingPage from './landingPage';
 import './App.css';
 import Home from './components/home';
 import NavBar from './components/navBar';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import Login from './login'
+import { Route, Routes} from "react-router-dom"
+import LoginButton from './components/login';
+import Profile from './components/profile';
+
+
 
 function App() {
   return (
-    <Router>
-      <Home />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
   );
 }
 

@@ -9,6 +9,7 @@ import AboutIcon from "@mui/icons-material/QuestionMark"
 import { HiOutlineBars3 } from "react-icons/hi2"
 import Drawer from "@mui/material/Drawer";
 import { Link } from 'react-router-dom'
+import LoginButton from './login';
 
 const NavBar = () => {
   const [OpenMenu, setOpenMenu] = useState(false);
@@ -38,7 +39,7 @@ const NavBar = () => {
     </div>
     <div className='NavBar-links-container'>
       <a href=''>Home</a>
-      <Link to="/login">Login</Link> {/* Use Link to navigate to the Login route */}
+      <LoginButton />
       <a href=''>Register</a>
       <a href=''>About</a>
     </div>
