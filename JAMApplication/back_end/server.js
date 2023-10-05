@@ -5,9 +5,12 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const router = express.Router();
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+
+const { getUserBySubId, insertUser } = require('../back_end/public/scripts/getUsers');
 
 app.set('view engine', 'ejs');
 
@@ -51,3 +54,29 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+// POST request to handle Auth0 user data ------
+router.post('/profile', async (req, res) => {
+  try {
+    const { sub, email, name, picture } = req.body;
+
+    // Check if the user with the given sub_id (Auth0 user ID) already exists in the database
+    const existingUser = await getUserBySubId(sub);
+
+    if (existingUser) {
+      // User already exists, send the existing user data back to the frontend
+      res.status(200).json(existingUser);
+    } else {
+      // User doesn't exist, insert the new user into the database
+      const newUser = await insertUser({ sub, email, name, picture }); // Implement this function
+
+      // Send the newly inserted user data back to the frontend
+      res.status(201).json(newUser);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+module.exports = router;

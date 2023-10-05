@@ -8,13 +8,17 @@ const Profile = () => {
   console.log(user)
 
   useEffect(() => {
-    if(isAuthenticated) {
+    if (isAuthenticated) {
       axios.post('http://localhost:8080/api/login', user)
-      .then(res => {
-        console.log(res);
-      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
-  },[isAuthenticated])
+  }, [isAuthenticated, user]);
+  
 
   if (isLoading) {
     return <div>Loading ...</div>;
