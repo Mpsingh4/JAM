@@ -6,8 +6,11 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 
+
 const PORT = process.env.PORT || 8080;
 const app = express();
+
+const { getUserBySubId, insertUser } = require('../back_end/public/scripts/getUsers');
 
 app.set('view engine', 'ejs');
 
@@ -51,3 +54,28 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+// POST request to handle Auth0 user data ------
+app.post('/api/login', async (req, res) => {
+  try {
+    const { sub, email, name, picture } = req.body;
+
+    // Check if user with the given sub_id from auth0 already exists in db
+    const existingUser = await getUserBySubId(sub);
+
+    if (existingUser) {
+      // user already exists, send the existing user data back to the frontend
+      res.status(200).json(existingUser);
+    } else {
+      // user doesn't exist, insert the new user into the database
+      const newUser = await insertUser({ sub, email, name, picture }); // Implement this function somewhere not sure where
+
+      // Send the new inserted user data back to the frontend hopefully
+      res.status(201).json(newUser);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
