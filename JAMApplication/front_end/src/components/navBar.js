@@ -53,4 +53,3 @@ const NavBar = () => {
 
 export default NavBar;
 
-// only for note to be made
