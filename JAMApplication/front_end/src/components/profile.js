@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import navBar from "./navBar"
+import navBar from "./navBar";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
