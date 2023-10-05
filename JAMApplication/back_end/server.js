@@ -5,7 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-const router = express.Router();
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -56,21 +56,21 @@ app.listen(PORT, () => {
 });
 
 // POST request to handle Auth0 user data ------
-router.post('/profile', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   try {
     const { sub, email, name, picture } = req.body;
 
-    // Check if the user with the given sub_id (Auth0 user ID) already exists in the database
+    // Check if user with the given sub_id from auth0 already exists in db
     const existingUser = await getUserBySubId(sub);
 
     if (existingUser) {
-      // User already exists, send the existing user data back to the frontend
+      // user already exists, send the existing user data back to the frontend
       res.status(200).json(existingUser);
     } else {
-      // User doesn't exist, insert the new user into the database
-      const newUser = await insertUser({ sub, email, name, picture }); // Implement this function
+      // user doesn't exist, insert the new user into the database
+      const newUser = await insertUser({ sub, email, name, picture }); // Implement this function somewhere not sure where
 
-      // Send the newly inserted user data back to the frontend
+      // Send the new inserted user data back to the frontend hopefully
       res.status(201).json(newUser);
     }
   } catch (error) {
@@ -79,4 +79,3 @@ router.post('/profile', async (req, res) => {
   }
 });
 
-module.exports = router;

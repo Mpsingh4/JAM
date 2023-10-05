@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import navBar from "./navBar";
+import NavBar from "./navBar";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(user)
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -17,6 +16,8 @@ const Profile = () => {
           console.error(error);
         });
     }
+    console.log(user, "user") //-change later
+    console.log(isAuthenticated,"Authenticated")
   }, [isAuthenticated, user]);
   
 
@@ -28,7 +29,7 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <div>
-        <navBar />
+        <NavBar />
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
