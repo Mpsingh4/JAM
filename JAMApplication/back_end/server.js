@@ -46,44 +46,51 @@
   );
   
 
-//  ======================  SEPARATE RESOURCES ROUTES   =======================
-  /** Original Notes
+//  =======================  SEPARATE RESOURCES ROUTES   ====================
+  /**  Original Notes
    *   - Separated Routes for each Resource
    *   - feel free to replace the example routes below with your own
    */
-//  original routes      *------------------------------------------------
-  const userApiRoutes = require('./routes/api/users-api');
-  const widgetApiRoutes = require('./routes/api/widgets-api');
-  const usersRoutes = require('./routes/users');
+  //  Original routes       *------------------------------------------------
+    /** used to load router module in the app - 1st part  */
+    const userApiRoutes = require('./routes/users-api');
+    const widgetApiRoutes = require('./routes/widgets-api');
+    const usersRoutes = require('./routes/users');
 
-//  routes for JAM       *------------------------------------------------
+  //  Routes for JAM       *------------------------------------------------
+    // API Routes
+    const coverLettersApiRoutes = require('./routes/coverLetters-api');
+    const jobApplicationsApiRoutes = require('./routes/jobApplications-api');
+    const responsesApiRoutes = require('./routes/responses-api');
+    const resumesApiRoutes = require('./routes/resumes-api');
+    // User Routes
   const jobApplicationsRoutes = require('./routes/jobApplications');
 
-//  ======================   MOUNT ALL RESOURCES ROUTES  =======================
-  /** Original Notes
+//  ======================= MOUNT ALL RESOURCES ROUTES   ====================
+  /**  Original Notes
    *  - Feel free to replace the example routes below with your own
    *  - Endpoints that return data (eg. JSON) usually start with `/api`
    *  - mount other resources here using the same pattern as below
    */
+  //  Example resources    *------------------------------------------------
+      // used to load router module in the app - 2nd part
+      app.use('/api/users', userApiRoutes);
+      app.use('/api/widgets', widgetApiRoutes);
+      app.use('/users', usersRoutes);
 
-//  example resources    *------------------------------------------------
-    app.use('/api/users', userApiRoutes);
-    app.use('/api/widgets', widgetApiRoutes);
-    app.use('/users', usersRoutes);
-    app.use('/api/jobApplication', jobApplicationRoutes);
-    
-
-//  resources for JAM    *------------------------------------------------
-    app.use('/jobApplications', jobApplicationRoutes);
-
-
-//  ======================     HOME PAGE          ==========================
-  /**
+  //  Resources for JAM    *------------------------------------------------
+    // API Routes
+      app.use('/api/coverLetters', coverLettersApiRoutes);
+      app.use('/api/jobApplications', jobApplicationsApiRoutes);
+      app.use('/api/responses', responsesApiRoutes);      
+      app.use('/api/resumes', resumesApiRoutes);
+    // User Routes
+//  =======================         HOME PAGE            ====================
+  /**  Original Notes
    * Home page
    *  - Warning: avoid creating more routes in this file!
    *  - Separate them into separate routes files (see above)
    */
-
 //  app.get              *------------------------------------------------
   app.get('/', (req, res) => {
     res.render('index');
