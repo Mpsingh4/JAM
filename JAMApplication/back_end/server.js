@@ -2,7 +2,6 @@
 //  ==-------------------       SERVER.JS      ----------------------------==
 //  =========================================================================
 
-
 //  =======================   IMPORTS (REQUIRED)    =========================
   //  require ex,mrgn,sass *-----------------------------------------------
     const express = require('express');
@@ -80,36 +79,36 @@
   //  Original routes       *------------------------------------------------
     // API & User Routes
     /** used to load router module in the app - 2nd part   */
-      app.use('/api/users', userApiRoutes);
-      app.use('/api/widgets', widgetApiRoutes);
-      app.use('/users', usersRoutes);
+    app.use('/api/users', userApiRoutes);
+    app.use('/api/widgets', widgetApiRoutes);
+    app.use('/users', usersRoutes);
 
-  //  Resources for JAM    *------------------------------------------------
-    // API Routes
-      app.use('/api/coverLetters', coverLettersApiRoutes);
-      app.use('/api/jobApplications', jobApplicationsApiRoutes);
-      app.use('/api/responses', responsesApiRoutes);      
-      app.use('/api/resumes', resumesApiRoutes);
+//  Resources for JAM    *------------------------------------------------
+  // API Routes
+    app.use('/api/coverLetters', coverLettersApiRoutes);
+    app.use('/api/jobApplications', jobApplicationsApiRoutes);
+    app.use('/api/responses', responsesApiRoutes);
+    app.use('/api/resumes', resumesApiRoutes);
 
 
-//  =======================         HOME PAGE            ====================
-  /**  Original Notes
+//  ======================     HOME PAGE          ==========================
+  /**
    * Home page
    *  - Warning: avoid creating more routes in this file!
    *  - Separate them into separate routes files (see above)
    */
+
 //  app.get              *------------------------------------------------
   app.get('/', (req, res) => {
     res.render('index');
   });
-  
-//  app.listen           *------------------------------------------------
-  app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
-  });
+
+  //  app.listen           *------------------------------------------------
+    app.listen(PORT, () => {
+      console.log(`Example app listening on port ${PORT}`);
+    });
 
 
-//  =========================================================================
-//  =========================================================================
-
+//  =======================================================================  //
+//  =======================================================================  //
 
