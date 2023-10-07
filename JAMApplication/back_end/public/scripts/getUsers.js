@@ -6,7 +6,7 @@ const db = require('../../db/connection'); // Import your database connection mo
 // Function to get a user by Auth0 sub_id
 async function getUserBySubId(sub) {
   try {
-    const user = await db.oneOrNone('SELECT * FROM users WHERE sub_id = $1', sub);
+    const user = await db.query('SELECT * FROM users WHERE sub_id = $1', [sub]);
     return user;
   } catch (error) {
     throw error;
@@ -22,12 +22,15 @@ async function insertUser(newUser) {
       RETURNING *;
     `;
 
-    const user = await db.one(query, [
-      newUser.first_name,
-      newUser.last_name,
+    const user = await db.query(query, [
+      newUser.given_name,
+      newUser.family_name,
       newUser.email,
-      newUser.sub_id,
+      newUser.sub,
     ]);
+
+    console.log(user);
+    // await db.query('SELECT * FROM users WHERE sub_id = $1', [newUser.sub]);
 
     return user;
   } catch (error) {

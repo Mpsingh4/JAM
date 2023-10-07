@@ -3,8 +3,8 @@
 
 DROP TABLE IF EXISTS resumes CASCADE;
 CREATE TABLE resumes (
-  resume_id           SERIAL PRIMARY KEY  NOT NULL,
-  user_id             INTEGER REFERENCES users(user_id),
+  id           SERIAL PRIMARY KEY  NOT NULL,
+  user_id             INTEGER REFERENCES users(id),
   resume_title        VARCHAR(255)        NOT NULL,
   contents            VARCHAR             NOT NULL
 );

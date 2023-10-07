@@ -5,12 +5,21 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser'); // Add this import
+const cors = require('cors'); // Add this import
 
 
 const PORT = process.env.PORT || 8080;
 const app = express();
 
 const { getUserBySubId, insertUser } = require('../back_end/public/scripts/getUsers');
+const corsOption= {
+
+  origin: "http://localhost:3000"
+}
+app.use(bodyParser.json());
+app.use(cors(corsOption)); // Enable CORS for your frontend after this
+
 
 app.set('view engine', 'ejs');
 
@@ -51,27 +60,24 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
-});
-
 // POST request to handle Auth0 user data ------
+
 app.post('/api/login', async (req, res) => {
   try {
-    const { sub, email, name, picture } = req.body;
+    const { sub, email, family_name, given_name } = req.body;
 
     // Check if user with the given sub_id from auth0 already exists in db
     const existingUser = await getUserBySubId(sub);
-
-    if (existingUser) {
+    console.log(existingUser)
+    if (existingUser.rows.length !== 0) {
       // user already exists, send the existing user data back to the frontend
-      res.status(200).json(existingUser);
+      res.status(200).json(existingUser.rows);
     } else {
       // user doesn't exist, insert the new user into the database
-      const newUser = await insertUser({ sub, email, name, picture }); // Implement this function somewhere not sure where
+      const newUser = await insertUser({ sub, email, family_name, given_name }); // Implement this function somewhere not sure where
 
       // Send the new inserted user data back to the frontend hopefully
-      res.status(201).json(newUser);
+      res.status(201).json(newUser.rows);
     }
   } catch (error) {
     console.error(error);
@@ -79,3 +85,31 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// app.post('/auth/callback', async (req, res) => {
+//   try {
+//     const { sub, email, name, picture } = req.body;
+
+//     // Check if user with the given sub_id from auth0 already exists in db
+//     const existingUser = await getUserBySubId(sub);
+
+//     if (existingUser) {
+//       // user already exists, send the existing user data back to the frontend
+//       res.status(200).json(existingUser);
+//     } else {
+//       // user doesn't exist, insert the new user into the database
+//       const newUser = await insertUser({ sub, email, name, picture });
+
+//       // Send the new inserted user data back to the frontend
+//       res.status(201).json(newUser);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// });
+
+
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});

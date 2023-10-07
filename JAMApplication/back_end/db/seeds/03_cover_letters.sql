@@ -2,7 +2,7 @@
 --   Inserts four covering letters 1 x Manpreet 2 x John 1 x Jane --
 
 -- Manpreet's Letter (1) --
-INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
+INSERT INTO cover_letters (id, user_id, resume_id, contents) VALUES
   (11, 1, 11,
    'Eileen McDonald
     771-555-0199 | Eileen.McDonald@email.com | Des Moines, Iowa 50306
@@ -24,7 +24,7 @@ INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
 
 
 -- John"s Letters (2) --
-INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
+INSERT INTO cover_letters (id, user_id, resume_id, contents) VALUES
   (21, 2, 21,
    'Erick Kaiser
     Human Resources Manager
@@ -69,7 +69,7 @@ INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
 
 
 -- Jane"s Letter (1) --
-INSERT INTO cover_letters (cover_letter_id, user_id, resume_id, contents) VALUES
+INSERT INTO cover_letters (id, user_id, resume_id, contents) VALUES
   (31, 3, 31,
    'Brittany Menard
     Fort Wayne, IN
