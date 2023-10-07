@@ -1,11 +1,11 @@
 //  ======================================================================== //  
-//  ==-------------------         ROUTES         -------------------------==
-//  ==-------------------      WIDGETS-API.JS    -------------------------==
+//  ==-------------------         ROUTES          ------------------------==
+//  ==-------------------      RESUMES-API.JS     ------------------------==
 //  ======================================================================== //  
   /** original notes
-  * All routes for Widget Data are defined here
-  * Since this file is loaded in server.js into api/widgets,
-  *   these routes are mounted onto /api/widgets
+  * All routes for Job Application Data are defined here
+  * Since this file is loaded in server.js into api/jobApplications,
+  *   these routes are mounted onto /api/jobApplications
   * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
   */
 
@@ -16,7 +16,7 @@
 
 //  router.get('/')        *-------------------------------------------------
   router.get('/', (req, res) => {
-    const query = `SELECT * FROM widgets`;
+    const query = `SELECT * FROM resumes`;
     console.log(query);
     db.query(query)
       .then(data => {
