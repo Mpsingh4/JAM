@@ -16,10 +16,10 @@ const sassMiddleware = (options) => {
       })
       fs.writeFileSync(`${destination}${cssFilename}.css`, rendered.css.toString())
     } catch (e) {
-      console.log(`\n 🙈🚨 UNABLE TO GENERATE CSS FROM SASS FILE: ${cssFilename.substring(1)}.${extension}  🚨🙈 \n 
+      console.log(`\n 🙈🚨 UNABLE TO GENERATE CSS FROM SASS FILE: ${cssFilename.substring(1)}.${extension}  🚨🙈 \n
       ERROR: ${e} \n`)
     }
-    
+
     next()
   }
 }
