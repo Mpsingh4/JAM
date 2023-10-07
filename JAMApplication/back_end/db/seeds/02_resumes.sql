@@ -6,7 +6,7 @@
 --   Inserts four resumes 1 x Manpreet, 2 x John, 1 x Jane --
 
 -- Manpreet"s Resume (1) --
-INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
+INSERT INTO resumes (id, user_id, resume_title, contents) VALUES
   (11, 1, 'Two Page',
    'Manpreet Singh
     New York, NY | 212-555-0149 | mrabb@email.com
@@ -36,7 +36,7 @@ INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
 
 
 -- John"s Resume (2)--
-INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
+INSERT INTO resumes (id, user_id, resume_title, contents) VALUES
   (21, 2, 'One Page',
    'John Cloghesy
     New York, NY | 212-555-0149 | mrabb@email.com
@@ -95,7 +95,7 @@ INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
 
 
 -- Jane's Resume (1) --
-INSERT INTO resumes (resume_id, user_id, resume_title, contents) VALUES
+INSERT INTO resumes (id, user_id, resume_title, contents) VALUES
   (31, 3, 'Three Page',
    'Jane Doe
     Denver, CO | 303-555-0196 | emoore@email.com
