@@ -3,12 +3,12 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const sassMiddleware = require('./lib/sass-middleware');
-const createResume = require('./public/scripts/resume-controller');
 
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const db = require('./db/connection');
 
 // Middleware
 app.use(morgan('dev'));
@@ -37,6 +37,7 @@ const jobApplicationsRoutes = require('./routes/jobApplications');
 const responsesRoutes = require('./routes/responses');
 const resumesRoutes = require('./routes/resumes');
 const { getUserBySubId, insertUser } = require('./public/scripts/getUsers')
+// const createResume = require('./public/scripts/resume-controller');
 
 // Mounting routes
 app.use('/api/users', userApiRoutes);
@@ -69,7 +70,25 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.post('/api/resumes/create', createResume);
+app.post('/api/resumes/create', async (req, res) => {
+  try {
+    const { name, contactInfo, education, experience, skills, userID } = req.body;
+    const query = `
+      INSERT INTO resumes (name, contact_info, education, experience, skills)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING *;
+    `;
+
+    const values = [name, contactInfo, education, experience, skills];
+    const result = await db.query(query, values);
+
+    // send response
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

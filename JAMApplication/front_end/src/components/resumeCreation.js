@@ -5,7 +5,7 @@ import NavBar from './navBar';
 
 const ResumeCreation = () => {
   const history = useHistory();
-
+  const userID = window.sessionStorage.getItem('userID');
   // Define state variables to store resume data
   const [resumeData, setResumeData] = useState({
     name: '',
@@ -13,6 +13,7 @@ const ResumeCreation = () => {
     education: '',
     experience: '',
     skills: '',
+    userID
   });
 
   // Handle input changes
@@ -30,12 +31,15 @@ const ResumeCreation = () => {
 
     try {
       // Send the resumeData to the backend for storage
-      const response = await axios.post('/api/resumes/create', resumeData);
+      const response = await axios.post('http://localhost:8080/api/resumes/create', resumeData);
 
       // Check for response
       if (response.status === 200) {
         console.log('response:', response.status)
-        history.push('/profile'); // Redirect may not be needed idk yet
+        history.push({
+          pathname: '/show',
+          state: { resumeData },
+        }); // Redirect to show
       } else {
         console.error('Resume creation failed.');
       }
@@ -48,6 +52,7 @@ const ResumeCreation = () => {
   return (
     <div>
       <NavBar />
+      
     <div className="resume-creation">
       <h2>Create a Resume</h2>
       <form onSubmit={handleSubmit}>
