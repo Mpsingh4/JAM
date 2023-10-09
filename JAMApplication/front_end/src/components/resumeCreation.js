@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
 import NavBar from './navBar';
 
 const ResumeCreation = () => {
   const history = useHistory();
+  const location = useLocation();
+  const { user } = location.state || {};
   const userID = window.sessionStorage.getItem('userID');
+
   // Define state variables to store resume data
   const [resumeData, setResumeData] = useState({
-    name: '',
+    name: user ? user.name: "",
     contactInfo: '',
     education: '',
     experience: '',
@@ -34,15 +37,13 @@ const ResumeCreation = () => {
       const response = await axios.post('http://localhost:8080/api/resumes/create', resumeData);
 
       // Check for response
-      if (response.status === 200) {
+      
         console.log('response:', response.status)
         history.push({
           pathname: '/show',
           state: { resumeData },
         }); // Redirect to show
-      } else {
-        console.error('Resume creation failed.');
-      }
+
     } catch (error) {
       // Any network or server error
       console.error('Error:', error);

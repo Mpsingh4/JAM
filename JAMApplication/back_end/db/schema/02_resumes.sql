@@ -9,10 +9,14 @@ DROP TABLE IF EXISTS resumes CASCADE;
 CREATE TABLE resumes (
   id                  SERIAL PRIMARY KEY  NOT NULL,
   user_id             INTEGER REFERENCES users(id),
-  resume_title        VARCHAR(255)        NOT NULL,
-  contents            VARCHAR             NOT NULL
+  name_of_user        VARCHAR(255)        NOT NULL,
+  contact_info        VARCHAR(255)        NOT NULL,
+  education           TEXT                NOT NULL,
+  experience          TEXT                NOT NULL,
+  skills              TEXT                NOT NULL
 );
-contact_info, education, experience, skills
+
+
 
 --  =====================================================================  --
 --  =====================================================================  --
