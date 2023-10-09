@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const sassMiddleware = require('./lib/sass-middleware');
+const createResume = require('./public/scripts/resume-controller');
 
 require('dotenv').config();
 
@@ -67,6 +68,8 @@ app.post('/api/login', async (req, res) => {
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.post('/api/resumes/create', createResume);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
