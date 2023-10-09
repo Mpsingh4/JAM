@@ -1,12 +1,9 @@
 import React from 'react';
-import landingPage from './landingPage';
 import './App.css';
 import Home from './components/home';
-import NavBar from './components/navBar';
-import { Route, Routes, Switch, BrowserRouter} from "react-router-dom"
-import LoginButton from './components/login';
+import { Route, Switch, BrowserRouter} from "react-router-dom"
 import Profile from './components/profile';
-
+import ResumeCreation from './components/resumeCreation';
 
 
 function App() {
@@ -15,6 +12,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/profile" component={Profile} />
+        <Route path="/create" components={ResumeCreation} />
       </Switch>
     </BrowserRouter>
   );
