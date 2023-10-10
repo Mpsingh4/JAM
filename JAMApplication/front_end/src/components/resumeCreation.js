@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
 import NavBar from './navBar';
+import "./comp.css"
 
 const ResumeCreation = () => {
   const history = useHistory();
@@ -54,12 +55,13 @@ const ResumeCreation = () => {
     <div>
       <NavBar />
     <body className="page-body">
+    <div className="banner">
     <div className="resume-creation">
       <h2>Create a Resume</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>
-          <input
+          <input className='create-res-textbox'
             type="text"
             name="name"
             value={resumeData.name}
@@ -69,7 +71,7 @@ const ResumeCreation = () => {
         </div>
         <div className="form-group">
           <label>Contact Information:</label>
-          <textarea
+          <textarea className='create-res-textbox'
             name="contactInfo"
             value={resumeData.contactInfo}
             onChange={handleInputChange}
@@ -78,7 +80,7 @@ const ResumeCreation = () => {
         </div>
         <div className="form-group">
           <label>Education:</label>
-          <textarea
+          <textarea className='create-res-textbox'
             name="education"
             value={resumeData.education}
             onChange={handleInputChange}
@@ -87,7 +89,7 @@ const ResumeCreation = () => {
         </div>
         <div className="form-group">
           <label>Experience:</label>
-          <textarea
+          <textarea className='create-res-textbox'
             name="experience"
             value={resumeData.experience}
             onChange={handleInputChange}
@@ -96,15 +98,16 @@ const ResumeCreation = () => {
         </div>
         <div className="form-group">
           <label>Skills:</label>
-          <textarea
+          <textarea className='create-res-textbox'
             name="skills"
             value={resumeData.skills}
             onChange={handleInputChange}
             required
           />
         </div>
-        <button type="submit">Create Resume</button>
+        <button className='create-res-submitbox' type="submit">Create Resume</button>
       </form>
+    </div>
     </div>
     </body>  
     </div>

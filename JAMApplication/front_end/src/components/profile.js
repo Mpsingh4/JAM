@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import NavBar from "./navBar";
 import { Link, useHistory } from "react-router-dom";
+import "./comp.css"
 
 
 
@@ -43,13 +44,16 @@ const Profile = () => {
       <div>
         <NavBar />
         <body className="page-body">
+        <div className="banner">
+        <h1 className="profile-welcome">Welcome</h1>
         <div className="contents">
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
         </div>
         {/* <Link to="/create">Create a Resume</Link> */}
-        <button onClick={redirectToCreateResume}> Create a Resume </button>
+        <button className="create-res-button" onClick={redirectToCreateResume}> Create a Resume </button>
+        </div>
         </body>  
       </div>
     )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './navBar';
+import './comp.css'
 
 
 const ShowResume = ({ resumeData }) => {
@@ -10,14 +11,16 @@ const ShowResume = ({ resumeData }) => {
     <div>
       <NavBar />
       <body className="page-body">
-      <h2 className='page-body-title'>Show Resume</h2>
-      <div className='page-body-text'>
+      <div className="banner">
+      {/* <h2 className='page-body-title'>Show Resume</h2> */}
+      <div className='show-page-body-text'>
         <p>Name: {location.state.resumeData.name}</p>
         <p>Contact Info: {location.state.resumeData.contactInfo}</p>
         <p>Education: {location.state.resumeData.education}</p>
         <p>Experience: {location.state.resumeData.experience}</p>
         <p>Skills: {location.state.resumeData.skills}</p> 
         {/* if more stuff is needed*/}
+      </div>
       </div>
       </body>  
     </div>
