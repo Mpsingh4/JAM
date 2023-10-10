@@ -53,7 +53,7 @@ const ResumeCreation = () => {
   return (
     <div>
       <NavBar />
-      
+    <body className="page-body">
     <div className="resume-creation">
       <h2>Create a Resume</h2>
       <form onSubmit={handleSubmit}>
@@ -106,6 +106,7 @@ const ResumeCreation = () => {
         <button type="submit">Create Resume</button>
       </form>
     </div>
+    </body>  
     </div>
   );
 };

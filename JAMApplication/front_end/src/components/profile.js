@@ -42,6 +42,7 @@ const Profile = () => {
     isAuthenticated && (
       <div>
         <NavBar />
+        <body className="page-body">
         <div className="contents">
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
@@ -49,6 +50,7 @@ const Profile = () => {
         </div>
         {/* <Link to="/create">Create a Resume</Link> */}
         <button onClick={redirectToCreateResume}> Create a Resume </button>
+        </body>  
       </div>
     )
   );

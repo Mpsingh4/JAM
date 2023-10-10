@@ -9,8 +9,9 @@ const ShowResume = ({ resumeData }) => {
   return (
     <div>
       <NavBar />
-      <h2>Show Resume</h2>
-      <div>
+      <body className="page-body">
+      <h2 className='page-body-title'>Show Resume</h2>
+      <div className='page-body-text'>
         <p>Name: {location.state.resumeData.name}</p>
         <p>Contact Info: {location.state.resumeData.contactInfo}</p>
         <p>Education: {location.state.resumeData.education}</p>
@@ -18,6 +19,7 @@ const ShowResume = ({ resumeData }) => {
         <p>Skills: {location.state.resumeData.skills}</p> 
         {/* if more stuff is needed*/}
       </div>
+      </body>  
     </div>
   );
 };
