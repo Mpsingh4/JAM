@@ -1,0 +1,75 @@
+.main-content {
+  color: azure;
+  font-size: larger;
+  zoom: 140%;
+  align-items: center;
+  padding-left: 125px;
+  padding-top: 145px;
+}
+
+.get-started {
+  zoom: 150%;
+  margin-top: 35px;
+}
+
+.contents {
+  color: azure;
+  zoom: 190%;
+  align-items: center;
+  padding-left: 125px;
+  padding-top: 100px;
+}
+
+.create-res-button {
+  padding: 3px;
+  margin-left: 132px;
+  margin-top: 25px;
+  zoom: 180%
+}
+
+.profile-welcome{
+  color: azure;
+  font-size: xx-large;
+  zoom: 180%;
+  padding-left: 125px;
+  padding-top: 20px;
+}
+
+.resume-creation {
+  color: azure;
+  font-size: xx-large;
+  zoom: 100%;
+  padding-left: 225px;
+  padding-top: 62px;
+  display: list-item;
+}
+
+.create-res-textbox {
+  zoom: 120%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  display: list-item;
+  width: 40%;
+  height: 35;
+}
+
+.create-res-submitbox {
+  zoom: 160%;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.cover-letter-title {
+  margin-bottom: 25px;;
+}
+
+.show-page-body-text {
+  color: azure;
+  font-size: xx-large;
+  zoom: 130%;
+  padding-left: 225px;
+  padding-top: 62px;
+  display: list-item;
+  
+}

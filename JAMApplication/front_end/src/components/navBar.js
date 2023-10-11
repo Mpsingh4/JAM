@@ -34,8 +34,10 @@ const NavBar = () => {
       <img src={Logo} alt=""/>
     </div>
     <div className='NavBar-links-container'>
+    
       <a href=''>Home</a>
-      <LoginButton />
+      <a href=''>Login</a>
+      {/* <LoginButton> Login </LoginButton> */}
       <a href=''>Register</a>
       <a href=''>About</a>
     </div>
@@ -49,3 +51,9 @@ const NavBar = () => {
 
 export default NavBar;
 
+{/* <ul>
+<li><a href=''>Home</a></li>
+<li><a href=''>Login</a></li>
+<li><a href=''>Register</a></li>
+<li><a href=''>About</a></li>
+</ul> */}

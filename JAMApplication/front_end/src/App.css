@@ -77,8 +77,19 @@ nav {
   color: #f74d71;
   font-size: 1.1rem;
   font-weight: 600;
-  
 }
+
+.NavBar-links-container a ::after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #f74d71;
+
+}
+
 .primary-button {
   padding: 0.9rem 1.75rem;
   background-color: white;
@@ -96,4 +107,18 @@ nav {
 .nav-bar-whole {
   background-color: #432c46;
   
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(./assets/background1.jpeg);
+  background-size:auto;
+  background-position: bottom;
+  zoom: 90%;
+
+}
+
+.NavBar-links-container {
+  zoom:140%;
 }

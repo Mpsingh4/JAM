@@ -3,11 +3,19 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const sassMiddleware = require('./lib/sass-middleware');
+const axios = require('axios');
+const OpenAI = require('openai');
+
+const openai = new OpenAI({
+  apiKey: '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',
+});
+
 
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const db = require('./db/connection');
 
 // Middleware
 app.use(morgan('dev'));
@@ -36,6 +44,7 @@ const jobApplicationsRoutes = require('./routes/jobApplications');
 const responsesRoutes = require('./routes/responses');
 const resumesRoutes = require('./routes/resumes');
 const { getUserBySubId, insertUser } = require('./public/scripts/getUsers')
+// const createResume = require('./public/scripts/resume-controller');
 
 // Mounting routes
 app.use('/api/users', userApiRoutes);
@@ -67,6 +76,62 @@ app.post('/api/login', async (req, res) => {
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+
+app.post('/api/resumes/create', async (req, res) => {
+  try {
+    const { name, contactInfo, education, experience, skills, userID } = req.body;
+
+    // check to make sure name is not null
+    if (!name) {
+      return res.status(400).json({ message: 'Name of user is required.' });
+    }
+
+    const query = `
+      INSERT INTO resumes (name_of_user, contact_info, education, experience, skills, user_id)
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING *;
+    `;
+
+    const prompt = 'Create a Resume for a software engineer job';
+    async function chatWithGPT3(prompt) {
+      try {
+        const response = await openai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "system",
+              content: "You are a helpful assistant."
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ],
+          max_tokens: 40,
+          temperature: 0.7
+        });
+        console.log('response:', response.choices[0].message.content)
+        return response.choices[0].message.content;
+      } catch (error) {
+        console.error('Error interacting with GPT-3:', error);
+        return null;
+      }
+    }
+
+    const answer = await chatWithGPT3(prompt)
+    console.log(answer)
+    const values = [ name, contactInfo, education, experience, skills, userID];
+    const result = await db.query(query, values);
+
+    // send response
+    res.status(201).json({data: answer});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
