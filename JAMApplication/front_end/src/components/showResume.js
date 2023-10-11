@@ -14,11 +14,12 @@ const ShowResume = ({ resumeData }) => {
       <div className="banner">
       {/* <h2 className='page-body-title'>Show Resume</h2> */}
       <div className='show-page-body-text'>
-        <p>Name: {location.state.resumeData.name}</p>
+        <p>{location.state.response}</p>
+        {/* <p>Name: {location.state.resumeData.name}</p>
         <p>Contact Info: {location.state.resumeData.contactInfo}</p>
         <p>Education: {location.state.resumeData.education}</p>
         <p>Experience: {location.state.resumeData.experience}</p>
-        <p>Skills: {location.state.resumeData.skills}</p> 
+        <p>Skills: {location.state.resumeData.skills}</p>  */}
         {/* if more stuff is needed*/}
       </div>
       </div>
@@ -30,3 +31,4 @@ const ShowResume = ({ resumeData }) => {
 export default ShowResume;
 
 // make sure to redirect if data is empty/null
+// make a backend route and pull from that. 

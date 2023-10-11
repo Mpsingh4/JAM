@@ -39,11 +39,11 @@ const ResumeCreation = () => {
 
       // Check for response
       
-        console.log('response:', response.status)
+        console.log('response:', response.data.data)
         history.push({
           pathname: '/show',
-          state: { resumeData },
-        }); // Redirect to show
+          state: { response: response.data.data },
+        });
 
     } catch (error) {
       // Any network or server error
