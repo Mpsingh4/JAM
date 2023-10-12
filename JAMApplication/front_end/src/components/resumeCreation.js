@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
 import NavBar from './navBar';
 import "./comp.css"
+import NavBar2 from './navbar2';
 
 const ResumeCreation = () => {
   const history = useHistory();
@@ -53,7 +54,7 @@ const ResumeCreation = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar2 />
     <body className="page-body">
     <div className="banner">
     <div className="resume-creation">

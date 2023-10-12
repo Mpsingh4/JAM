@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './navBar';
 import './comp.css'
+import NavBar2 from './navbar2';
 
 
 const ShowResume = ({ resumeData }) => {
@@ -9,11 +10,13 @@ const ShowResume = ({ resumeData }) => {
   console.log('location:', location);
   return (
     <div>
-      <NavBar />
+      <NavBar2 />
       <body className="page-body">
       <div className="banner">
       <div className='show-page-body-text'>
-        <p>{location.state.response}</p>
+      <h1 className='show-title'>Your Job Winning Resume: </h1>
+        <p className='showres-text'>{location.state.response}</p>
+        <button className='download'>Download PDF</button>
       </div>
       </div>
       </body>  

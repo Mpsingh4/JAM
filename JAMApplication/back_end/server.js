@@ -5,9 +5,10 @@ const cors = require('cors');
 const sassMiddleware = require('./lib/sass-middleware');
 const axios = require('axios');
 const OpenAI = require('openai');
+require('dotenv').config();
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.OPENAI_API_KEY, // Reference the environment variable
 });
 
 
@@ -148,10 +149,10 @@ app.post('/api/coverletters/generate', async (req, res) => {
 
     // Construct a prompt for generating a cover letter
     const prompt = `
-      Contact Info: ${contactInfo}
-      Education: ${education}
-      Experience: ${experience}
-      Skills: ${skills}
+      Company Name: ${contactInfo}
+      Job Title: ${education}
+      Role Description: ${experience}
+      Skills needed: ${skills}
       Please generate a cover letter based on the provided information.
     `;
 
@@ -183,14 +184,14 @@ app.post('/api/coverletters/generate', async (req, res) => {
     }
 
     const answer = await chatWithGPT3(prompt)
-    console.log(answer)
+    console.log(answer, 'answer')
     const values = [ contactInfo, education, experience, skills ];
-    const result = await db.query(query, values)
+    // const result = await db.query(query, values)
     // Extract the generated cover letter from the response
     // const generatedCoverLetter = response.choices[0].message.content;
 
     // Send the generated cover letter as a response
-    res.status(201).json({ data: answer });
+    res.status(200).json({ data: answer });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error', error: error.message });

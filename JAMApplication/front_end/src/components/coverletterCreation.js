@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import axios from 'axios';
 import NavBar from './navBar';
 import "./comp.css"
+import NavBar2 from './navbar2';
 
 const CoverletterCreation = () => {
   const history = useHistory();
@@ -54,55 +55,55 @@ const CoverletterCreation = () => {
   
 
   return (
-    <div>
-      <NavBar />
-    <body className="page-body">
-    <div className="banner">
-    <div className="resume-creation">
-      <h2 className='cover-letter-title'>Create a Cover Letter</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Company Name:</label>
-          <textarea className='create-res-textbox'
-            name="contactInfo"
-            value={coverletterData.contactInfo}
-            onChange={handleInputChange}
-            required
-          />
+    <main>
+      <NavBar2 />
+      <div className="page-body">
+        <div className="banner">
+          <div className="resume-creation">
+            <h2 className='cover-letter-title'>Create a Cover Letter</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Company Name:</label>
+                <textarea className='create-res-textbox'
+                  name="contactInfo"
+                  value={coverletterData.contactInfo}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Job Title:</label>
+                <textarea className='create-res-textbox'
+                  name="education"
+                  value={coverletterData.education}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Role Description:</label>
+                <textarea className='create-res-textbox'
+                  name="experience"
+                  value={coverletterData.experience}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Required/Highlight Skills:</label>
+                <textarea className='create-res-textbox'
+                  name="skills"
+                  value={coverletterData.skills}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <button className='create-res-submitbox' type="submit">Create Cover Letter</button>
+            </form>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Job Title:</label>
-          <textarea className='create-res-textbox'
-            name="education"
-            value={coverletterData.education}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Role Description:</label>
-          <textarea className='create-res-textbox'
-            name="experience"
-            value={coverletterData.experience}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Required/Highlight Skills:</label>
-          <textarea className='create-res-textbox'
-            name="skills"
-            value={coverletterData.skills}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <button className='create-res-submitbox' type="submit">Create Cover Letter</button>
-      </form>
-    </div>
-    </div>
-    </body>  
-    </div>
+      </div>
+    </main>
   );
 };
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import NavBar from "./navBar";
 import { Link, useHistory } from "react-router-dom";
 import "./comp.css"
+import NavBar2 from "./navbar2";
 
 
 
@@ -50,7 +51,7 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <div>
-        <NavBar />
+        <NavBar2 />
         <body className="page-body">
         <div className="banner">
         <h1 className="profile-welcome">Welcome</h1>

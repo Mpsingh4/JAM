@@ -75,5 +75,24 @@
   
 }
 
+.showres-text {
+  background-color: #432c46;
+  max-width: 95%;
+  padding: 40px;
+  margin-bottom: 20px;
+  font-size: large;
+  zoom: 110%;
+}
+
+.show-title {
+  color: aliceblue;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  zoom: 140%;
+}
+.download {
+  zoom: 160%;
+  margin-left: 2%;
+}
 
 /* white-space: pre-wrap;  */
