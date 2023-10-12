@@ -4,7 +4,7 @@ import NavBar from './navBar';
 import './comp.css'
 
 
-const ShowResume = ({ resumeData }) => {
+const ShowCover = ({ coverletterData }) => {
   const location = useLocation();
   console.log('location:', location);
   return (
@@ -21,7 +21,4 @@ const ShowResume = ({ resumeData }) => {
   );
 };
 
-export default ShowResume;
-
-// make sure to redirect if data is empty/null
-// make a backend route and pull from that. 
+export default ShowCover;

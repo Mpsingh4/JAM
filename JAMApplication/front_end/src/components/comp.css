@@ -14,38 +14,38 @@
 
 .contents {
   color: azure;
-  zoom: 190%;
+  zoom: 140%;
   align-items: center;
-  padding-left: 125px;
-  padding-top: 100px;
+  padding-left: 100px;
+  padding-top: 50px;
 }
 
 .create-res-button {
-  padding: 3px;
-  margin-left: 132px;
-  margin-top: 25px;
-  zoom: 180%
+  padding: 2px;
+  margin-left: 100px;
+  margin-top: 125px;
+  zoom: 120%
 }
 
 .profile-welcome{
   color: azure;
   font-size: xx-large;
-  zoom: 180%;
-  padding-left: 125px;
+  zoom: 140%;
+  padding-left: 100px;
   padding-top: 20px;
 }
 
 .resume-creation {
   color: azure;
   font-size: xx-large;
-  zoom: 100%;
+  zoom: 80%;
   padding-left: 225px;
   padding-top: 62px;
   display: list-item;
 }
 
 .create-res-textbox {
-  zoom: 120%;
+  zoom: 160%;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 25px;
@@ -66,10 +66,14 @@
 
 .show-page-body-text {
   color: azure;
-  font-size: xx-large;
-  zoom: 130%;
-  padding-left: 225px;
-  padding-top: 62px;
+  font-size: medium;
+  zoom: 70%;
+  padding-left: 25px;
+  padding-top: 32px;
   display: list-item;
+  white-space: pre-wrap; 
   
 }
+
+
+/* white-space: pre-wrap;  */

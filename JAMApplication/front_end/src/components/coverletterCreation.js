@@ -32,24 +32,26 @@ const CoverletterCreation = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Send the coverletterData to the backend for storage
-      const response = await axios.post('http://localhost:8080/api/coverletters/create', coverletterData);
-
+      const response = await axios.post(
+        'http://localhost:8080/api/coverletters/generate', // Backend route for creating cover letters
+        coverletterData
+      );
+  
       // Check for response
-      
-        console.log('response:', response.status)
-        history.push({
-          pathname: '/showCover',
-          state: { coverletterData },
-        }); // Redirect to show
-
+      console.log('response:', response.status);
+      history.push({
+        pathname: '/showCover',
+        state: { response: response.data.data }, // Sending the generated cover letter to the showCover component
+      }); // Redirect to showCover
     } catch (error) {
       // Any network or server error
       console.error('Error:', error);
     }
   };
+  
 
   return (
     <div>

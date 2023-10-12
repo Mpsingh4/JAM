@@ -6,6 +6,7 @@ import Profile from './components/profile';
 import ResumeCreation from './components/resumeCreation';
 import ShowResume from './components/showResume';
 import CoverletterCreation from './components/coverletterCreation';
+import ShowCover from './components/showCover';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/create" component={ResumeCreation} />
         <Route path="/show" component={ShowResume} />
-        <Route path="/coverletter" component={CoverletterCreation} />
+        <Route path="/coverletters" component={CoverletterCreation} />
+        <Route path="/showcover" component={ShowCover} />
       </Switch>
     </BrowserRouter>
   );

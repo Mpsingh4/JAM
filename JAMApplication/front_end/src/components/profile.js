@@ -39,6 +39,14 @@ const Profile = () => {
     });
   };
 
+  const redirectToCreateCoverletter = () => {
+    // Pass user data as state when redirecting to /create
+    history.push({
+      pathname: "/coverletters",
+      state: { user },
+    });
+  };
+
   return (
     isAuthenticated && (
       <div>
@@ -53,6 +61,7 @@ const Profile = () => {
         </div>
         {/* <Link to="/create">Create a Resume</Link> */}
         <button className="create-res-button" onClick={redirectToCreateResume}> Create a Resume </button>
+        <button className="create-res-button" onClick={redirectToCreateCoverletter}> Create a Cover Letter </button>
         </div>
         </body>  
       </div>
