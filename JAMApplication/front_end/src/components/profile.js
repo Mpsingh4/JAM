@@ -4,6 +4,7 @@ import axios from "axios";
 import NavBar from "./navBar";
 import { Link, useHistory } from "react-router-dom";
 import "./comp.css"
+import NavBar2 from "./navbar2";
 
 
 
@@ -39,10 +40,18 @@ const Profile = () => {
     });
   };
 
+  const redirectToCreateCoverletter = () => {
+    // Pass user data as state when redirecting to /create
+    history.push({
+      pathname: "/coverletters",
+      state: { user },
+    });
+  };
+
   return (
     isAuthenticated && (
       <div>
-        <NavBar />
+        <NavBar2 />
         <body className="page-body">
         <div className="banner">
         <h1 className="profile-welcome">Welcome</h1>
@@ -53,6 +62,7 @@ const Profile = () => {
         </div>
         {/* <Link to="/create">Create a Resume</Link> */}
         <button className="create-res-button" onClick={redirectToCreateResume}> Create a Resume </button>
+        <button className="create-res-button" onClick={redirectToCreateCoverletter}> Create a Cover Letter </button>
         </div>
         </body>  
       </div>
